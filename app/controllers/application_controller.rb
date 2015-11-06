@@ -1,4 +1,4 @@
-#
+# All other controllers inherit from this one.
 class ApplicationController < ActionController::API
   # Defaults for API requests
   before_action :api_request_settings
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::API
     !Rails.env.development?
   end
 
-  # Use enhanced JSON serialization
+  # Use enhanced JSON serialization - makes it easier to generate json
   include ActionController::Serialization
 
   # return 404 for failed search by id
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::API
     render json: { message: 'Not Found' }, status: :not_found
   end
 
-  # Restrict visibility of these methods
+  # Restrict visibility of these methods - can only be called from inheritance chain of object in question.
   private :authenticate, :current_user, :record_not_found
   private :ssl_configured?, :api_request_settings
 end

@@ -1,4 +1,4 @@
-#
+#if you inherit from application controller, all of your methods can only be accessed if authenticated.
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
