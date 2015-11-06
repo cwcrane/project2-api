@@ -4,7 +4,6 @@ class CreateBooks < ActiveRecord::Migration
     create_table :books do |t|
       t.string :title
       t.string :isbn
-      t.references :user
 
       t.timestamps null: false
     end
