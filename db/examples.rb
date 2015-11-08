@@ -5,7 +5,6 @@ BorrowRequest.delete_all
 Book.delete_all
 
 
-
 User.create!([
   {email: "lindsey@lindsey.com", password_digest: "lindsey"},
   {email: "chris@chris.com", password_digest: "chris"},
@@ -21,32 +20,32 @@ Profile.create!([
 ])
 
 Book.create!([
-  {title: "Good to Great", isbn: 9789749535172, author: "Jim Collins", profile_id: 1},
-  {title: "The Catcher in the Rye", isbn: 9780316769310, author: "J.D. Salinger", profile_id: 1},
-  {title: "Ancillary Justice", isbn: 9781306759434, author: "Ann Leckie", profile_id: 1},
-  {title: "Let My People Go Surfing", isbn: 9781429537124, author: "Yvon Chouinard", profile_id: 1},
-  {title: "Pnin", isbn: 9788421742648, author: "Vladimir Nabokov", profile_id: 2},
-  {title: "The Hard Thing About Hard Things", isbn: 9780062273208, author: "Ben Horowitz", profile_id: 2},
-  {title: "Black Swan Green", isbn: 9781471224348, author: "David Mitchell", profile_id: 2},
-  {title: "Zero To One", isbn: 9783593501604, author: "Peter Thiel", profile_id: 2},
-  {title: "Manufacturing Consent", isbn: 9781407054056, author: "Noam Chomsky", profile_id: 2},
-  {title: "Fight Club", isbn: 393039765, author: "Chuck Palahniuk", profile_id: 3},
-  {title: "The Stranger", isbn: 9788845277634, author: "Albert Camus", profile_id: 3},
-  {title: "The Short and Tragic Life of Robert Peace", isbn: 9781476731926, author: "Jeff Hobbs", profile_id: 3},
-  {title: "Tinkers", isbn: 9781934137192, author: "Paul Harding", profile_id: 3},
-  {title: "Poor Charlie's Almanack", isbn: 9781578645015, author: "Charles Munger", profile_id: 3},
-  {title: "Poor Charlie's Almanack", isbn: 9781578645015, author: "Charles Munger", profile_id: 4},
-  {title: "The Great Gatsby", isbn: 9781597226769, author: "F. Scott Fitzgerald", profile_id: 4},
-  {title: "The Death of Ivan Ilyich", isbn: 9789629545703, author: "Leo Tolstoy", profile_id: 4},
-  {title: "Life of Pi", isbn: 9780756933937, author: "Yann Martel", profile_id: 4},
-  {title: "Harry Potter and The Chamber of Secrets", isbn: 9780747560722, author: "J.K. Rowling", profile_id: 4}
+  {title: "Good to Great", isbn: 9789749535172, author: "Jim Collins", user_id: 1},
+  {title: "The Catcher in the Rye", isbn: 9780316769310, author: "J.D. Salinger", user_id: 1},
+  {title: "Ancillary Justice", isbn: 9781306759434, author: "Ann Leckie", user_id: 1},
+  {title: "Let My People Go Surfing", isbn: 9781429537124, author: "Yvon Chouinard", user_id: 1},
+  {title: "Pnin", isbn: 9788421742648, author: "Vladimir Nabokov", user_id: 2},
+  {title: "The Hard Thing About Hard Things", isbn: 9780062273208, author: "Ben Horowitz", user_id: 2},
+  {title: "Black Swan Green", isbn: 9781471224348, author: "David Mitchell", user_id: 2},
+  {title: "Zero To One", isbn: 9783593501604, author: "Peter Thiel", user_id: 2},
+  {title: "Manufacturing Consent", isbn: 9781407054056, author: "Noam Chomsky", user_id: 2},
+  {title: "Fight Club", isbn: 393039765, author: "Chuck Palahniuk", user_id: 3},
+  {title: "The Stranger", isbn: 9788845277634, author: "Albert Camus", user_id: 3},
+  {title: "The Short and Tragic Life of Robert Peace", isbn: 9781476731926, author: "Jeff Hobbs", user_id: 3},
+  {title: "Tinkers", isbn: 9781934137192, author: "Paul Harding", user_id: 3},
+  {title: "Poor Charlie's Almanack", isbn: 9781578645015, author: "Charles Munger", user_id: 3},
+  {title: "Poor Charlie's Almanack", isbn: 9781578645015, author: "Charles Munger", user_id: 4},
+  {title: "The Great Gatsby", isbn: 9781597226769, author: "F. Scott Fitzgerald", user_id: 4},
+  {title: "The Death of Ivan Ilyich", isbn: 9789629545703, author: "Leo Tolstoy", user_id: 4},
+  {title: "Life of Pi", isbn: 9780756933937, author: "Yann Martel", user_id: 4},
+  {title: "Harry Potter and The Chamber of Secrets", isbn: 9780747560722, author: "J.K. Rowling", user_id: 4}
 ])
 
 BorrowRequest.create!([
-  {book_id: 3, profile_id: 4, request_date: "2015-09-13", response_date: "2015-09-14", response: "yes", due_back:"2015-10-13"},
-  {book_id: 4, profile_id: 3, request_date: "2015-09-15", response_date: "2015-09-17", response: "yes", due_back:"2015-10-16"},
-  {book_id: 1, profile_id: 3, request_date: "2015-10-30"},
-  {book_id: 10, profile_id: 1, request_date: "2015-11-2"}
+  {book_id: 3, user_id: 4, request_date: "2015-09-13", response_date: "2015-09-14", response: "yes", due_back:"2015-10-13"},
+  {book_id: 4, user_id: 3, request_date: "2015-09-15", response_date: "2015-09-17", response: "yes", due_back:"2015-10-16"},
+  {book_id: 1, user_id: 3, request_date: "2015-10-30"},
+  {book_id: 10, user_id: 1, request_date: "2015-11-2"}
   ])
 
 Rating.create!([

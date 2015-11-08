@@ -7,8 +7,10 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :last_name
       t.string :address_street
       t.string :city
+      t.string :state
       t.integer :zip
       t.integer :phone
+
       t.timestamps null: false
     end
   end

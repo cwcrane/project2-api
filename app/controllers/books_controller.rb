@@ -1,5 +1,6 @@
 #
 class BooksController < OpenReadController
+  #before filter method, requiring set_book to run first for update and destroy
   before_action :set_book, only: [:update, :destroy]
 
   # GET /books

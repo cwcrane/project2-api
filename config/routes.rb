@@ -4,7 +4,14 @@ Rails.application.routes.draw do
   post '/login' => 'auth#login'
   delete '/logout/:id' => 'auth#logout'
 
-  resources :users, except: [:new, :edit]
+  resources :users, except: [:new, :edit] #index, show, create, update, delete
 
   resources :books, except: [:new, :edit]
+
+  resources :profiles, except: [:new, :edit]
+
+  resources :borrow_requests, except: [:new, :edit]
+
+  resources :ratings, except: [:new, :edit]
+
 end
