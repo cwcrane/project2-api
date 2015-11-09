@@ -13,3 +13,5 @@
 /tmp
 
 /curl.txt
+
+.env
