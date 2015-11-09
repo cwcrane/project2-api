@@ -6,10 +6,10 @@ Book.delete_all
 
 
 User.create!([
-  {email: "lindsey@lindsey.com", password_digest: "lindsey"},
-  {email: "chris@chris.com", password_digest: "chris"},
-  {email: "david@david.com", password_digest: "david"},
-  {email: "ruth@ruth.com", password_digest: "ruth"}
+  {email: "lindsey@lindsey.com", password: "lindsey"},
+  {email: "chris@chris.com", password: "chris"},
+  {email: "david@david.com", password: "david"},
+  {email: "ruth@ruth.com", password: "ruth"}
 ])
 
 Profile.create!([
