@@ -5,8 +5,11 @@ class BooksController < OpenReadController
 
   # GET /books
   def index
-    @books = Book.all
-
+    if current_user
+      @books = current_user.books
+    else
+      @books = Book.all
+    end
     render json: @books
   end
 
