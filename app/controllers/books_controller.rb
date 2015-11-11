@@ -9,7 +9,6 @@ class BooksController < OpenReadController
       @books = current_user.books
     elsif params[:query]
       @books = Book.where('title like :title OR author like :author', title: params[:query]+'%',author: params[:query]+'%')
-
     else
       @books = Book.all
     end
@@ -27,7 +26,7 @@ class BooksController < OpenReadController
   # POST /books
   def create
     @book = current_user.books.build(book_params)
-    @rating = current_user.books.ratings.build(book_params[:rating])
+    #@rating = current_user.books.ratings.build(book_params[:rating])
 
     if @book.save
       render json: @book, status: :created, location: @book
