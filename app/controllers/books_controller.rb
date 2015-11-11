@@ -7,11 +7,15 @@ class BooksController < OpenReadController
   def index
     if current_user
       @books = current_user.books
+    elsif params[:query]
+      @books = Book.where('title like :title OR author like :author', title: params[:query]+'%',author: params[:query]+'%')
+
     else
       @books = Book.all
     end
     render json: @books
   end
+
 
   # GET /books/1
   def show
@@ -22,7 +26,8 @@ class BooksController < OpenReadController
 
   # POST /books
   def create
-    @book = current_user.books.new(book_params)
+    @book = current_user.books.build(book_params)
+    @rating = current_user.books.ratings.build(book_params[:rating])
 
     if @book.save
       render json: @book, status: :created, location: @book
@@ -52,7 +57,7 @@ class BooksController < OpenReadController
   end
 
   def book_params
-    params.require(:book).permit(:title, :isbn)
+    params.require(:book).permit(:title, :isbn, :author)
   end
 
   private :set_book, :book_params

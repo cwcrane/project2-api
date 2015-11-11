@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   delete '/logout/:id' => 'auth#logout'
 
   resources :users, except: [:new, :edit] #index, show, create, update, delete
+  #get '/books' => 'books#index'
+  #post '/books/:id' => 'books#show'
+
 
   resources :books, except: [:new, :edit]
 
