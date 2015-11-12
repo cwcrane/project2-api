@@ -20,4 +20,6 @@ Rails.application.routes.draw do
 
   resources :ratings, except: [:new, :edit]
 
+  get '/borrowed_books', to: 'books#borrowed_books'
+
 end

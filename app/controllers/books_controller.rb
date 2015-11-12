@@ -3,6 +3,17 @@ class BooksController < OpenReadController
   #before filter method, requiring set_book to run first for update and destroy
   before_action :set_book, only: [:update, :destroy]
 
+  def borrowed_books
+    if current_user
+      # for all books give me back an array of the current user's books
+      book_ids = current_user.books.map(&:id) #.map(&:book)
+      # Give me all the BorrowRequests for the current user's book id's
+      # and call the book method on each BorrowRequest, BorrowRequest#book
+      @books = BorrowRequest.where(book_id: book_ids)
+    end
+    render json: @books
+  end
+
   # GET /books
   def index
     if current_user

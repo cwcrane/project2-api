@@ -1,6 +1,8 @@
 #
 class BookSerializer < ActiveModel::Serializer
-  attributes :id, :title, :isbn, :author, :status, :rating #:good_reads_rating
+  attributes :id, :title, :isbn, :author, :status, :rating, :borrow_requests #:good_reads_rating
+
+
 
   def good_reads_rating
     response = httparty "www.goodreads.com/book/review_counts.json?isbns=#{object.isbn}&key=XBQ7rB3NkWt6EvNHQ16Dsg"
