@@ -42,8 +42,8 @@ Book.create!([
 ])
 
 BorrowRequest.create!([
-  {book_id: 3, user_id: 4, request_date: "2015-09-13", response_date: "2015-09-14", response: "yes", due_back:"2015-10-13"},
-  {book_id: 4, user_id: 3, request_date: "2015-09-15", response_date: "2015-09-17", response: "yes", due_back:"2015-10-16"},
+  {book_id: 3, user_id: 4, request_date: "2015-09-13", response_date: "2015-09-14", response: "true", due_back:"2015-10-13"},
+  {book_id: 4, user_id: 3, request_date: "2015-09-15", response_date: "2015-09-17", response: "true", due_back:"2015-10-16"},
   {book_id: 1, user_id: 3, request_date: "2015-10-30"},
   {book_id: 10, user_id: 1, request_date: "2015-11-2"}
   ])

@@ -4,7 +4,11 @@ class BorrowRequestsController < OpenReadController
 
   # GET /borrow_requests
   def index
-    @borrow_request = BorrowRequest.all
+    if current_user
+      @borrow_request = current_user.borrow_requests
+    else
+      @borrow_request = BorrowRequest.all
+    end
 
     render json: @borrow_request
   end
