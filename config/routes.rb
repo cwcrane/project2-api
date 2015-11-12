@@ -8,10 +8,13 @@ Rails.application.routes.draw do
   #get '/books' => 'books#index'
   #post '/books/:id' => 'books#show'
 
+  get '/profiles' => 'profiles#index'
+  get '/profiles/:id' => 'profiles#show'
+  post '/profiles' => 'profiles#create'
+  patch '/profiles/:id' => 'profiles#update'
+  delete '/profiles/:id' => 'profiles#destroy'
 
   resources :books, except: [:new, :edit]
-
-  resources :profiles, except: [:new, :edit]
 
   resources :borrow_requests, except: [:new, :edit]
 
