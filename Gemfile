@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 # Set required ruby version (for heroku)
 ruby '2.2.3'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 gem 'rails', '4.2.4'
 
 # Reduce rails kitchen sink approach
