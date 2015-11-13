@@ -1,9 +1,6 @@
-User.delete_all
-Profile.delete_all
-Rating.delete_all
-BorrowRequest.delete_all
-Book.delete_all
-
+if User.first
+  fail 'Did you mean to do that? You\'ve already loaded examples. If you really want to continue, drop your database first!'
+end
 
 User.create!([
   {email: "lindsey@lindsey.com", password: "lindsey"},
