@@ -1,8 +1,8 @@
 class BorrowRequestSerializer < ActiveModel::Serializer
-  attributes :id, :book_id, :user_id, :request_date, :response_date, :response, :due_back, :book, :profile#, :requestor_profile #:book_owner
+  attributes :id, :book_id, :user_id, :request_date, :response_date, :response, :due_back, :book, :profile #:book_owner #:requestor_profile
 
-  # def requestor_profile
-  #   object.user_id.profile
+  # def book_owner
+  #   book.user_id.profile
   # end
 
 end
