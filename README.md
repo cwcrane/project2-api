@@ -1,6 +1,6 @@
 #Book Swap
 
-This is the back-end repo. The front end repo is located [here]: "https://github.com/cwcrane/Book_App_Front_End" 
+This is the back-end repo. The front end repo is located here: "https://github.com/cwcrane/Book_App_Front_End" 
 
 ###Purpose:
 
