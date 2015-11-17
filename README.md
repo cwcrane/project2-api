@@ -1,64 +1,57 @@
+#Book Swap
 
-# User authentication
+This is the back-end repo. The front end repo is located [here]: "https://github.com/cwcrane/Book_App_Front_End" 
 
-## Register
+###Purpose:
 
-```
-curl --include --request POST --header "Content-Type: application/json" -d '{
-  "credentials": {
-    "email": "an@example.email",
-    "password": "an example password",
-    "password_confirmation": "an example password"
-  }
-}' http://localhost:3000/register
-```
+This app was conceived with the intention of giving people an easy way to borrow books from their neighbors and friends. More thorough users stories are below, but the basic idea is that a user can search for a book and request to borrow it from anyone in the area which might have it on their bookshelf. A use can also add their own books and loan them out.
 
-## Login
+###User Stories:
 
-```
-curl --request POST --header "Content-Type: application/json" -d '{
-  "credentials": {
-    "email": "an@example.email",
-    "password": "an example password"
-  }
-}' http://localhost:3000/login
-```
+As a user...
 
-## Logout
+  * I can make a profile.
+  * I can add my library so others can borrow from me.
+  * I can view my library and the status of each book (available, or loaned out).
+  * I can search for other people’s books by title, and sort results by location.
+  * I can view what I have borrowed from others, and when it’s due back.
+  * I can make a request to borrow from others’ libraries.
+  * I can accept or reject a borrow request.
+  * I can check out the profile of the requestor.
 
-```
-curl --request DELETE --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/logout/1
-```
+###Stretch goals (still working on these):
 
-# Users
+  * Get reviews from goodreads.com
+  * I can rate my books.
+  * I can search by users, to view their library and ratings.
+  * prevent borrow requests until the user has listed at least one book.
+  * add notes on books
+  * map view of books
 
-## List
 
-```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
-```
+###Database Structure:
 
-# Books
+The database has several relational tables. Here are the relationships:
 
-## List
+  * A USER has one PROFILE.
+  * A USER has many BOOKS.
+  * A USER has many BORROW_REQUESTS.
+  * A BOOK has many REVIEWS.
 
-```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
-```
+###Challenges Faced:
 
-**OR**
+  * laid out too big of a scope of a project for one week. Too many tables.
+  * this meant I had a lot of apis, a lot of clickhandlers, and a lot of tables to make.
+  * this turned out to be a good challenge because it forced me to organize my code early on.
 
-```
-curl http://localhost:3000/users
-```
+###Proud of:
 
-## Create
+  * API with goodreads.com
+  * dynamic handlebars templates whose buttons have clickhandlers.
+  * search by title and artist with substrings.
+  * better organization of my code since last time: (ux states, callback functions, event handlers, api...all have their own js files.)
 
-```
-curl --request POST --header "Authorization: Token token=be249dc0231396806f24c953cafae03a" --header "Content-Type: application/json" -d '{
-  "book": {
-    "title":"The Hold",
-    "isbn":"abc123def456"
-  }
-}'  http://localhost:3000/books
-```
+###Next Steps:
+
+  * Still need to build a way for users to edit profiles.
+  * give users the ability to rate books, search for their friends, andmake a top books list.
