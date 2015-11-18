@@ -11,19 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151106205820) do
+ActiveRecord::Schema.define(version: 20151116213730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "books", force: :cascade do |t|
-    t.string   "title",                            null: false
+    t.string   "title",                                                 null: false
     t.string   "author"
     t.integer  "user_id"
     t.string   "isbn"
-    t.string   "status",     default: "Available"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.string   "status",                default: "Available"
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+    t.string   "good_reads_rating",     default: "N/A"
+    t.datetime "good_reads_updated_at", default: '2015-11-15 21:45:41'
   end
 
   add_index "books", ["user_id"], name: "index_books_on_user_id", using: :btree
