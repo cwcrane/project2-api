@@ -1,6 +1,6 @@
 class BorrowRequestsController < OpenReadController
 
-  before_action :set_borrow_request, only: [:update, :destroy]
+  #before_action :set_borrow_request, only: [:update, :destroy]
 
   # GET /borrow_requests
   def index
@@ -33,6 +33,7 @@ class BorrowRequestsController < OpenReadController
 
   # PATCH /borrow_requests/1
   def update
+    @borrow_request = BorrowRequest.find(params[:id])
     if @borrow_request.update(borrow_request_params)
 
       render json: @borrow_request
@@ -43,19 +44,21 @@ class BorrowRequestsController < OpenReadController
 
   # DELETE /borrow_requests/1
   def destroy
+    @borrow_request = current_user.borrow_requests.find(params[:id])
     @borrow_request.destroy
 
     head :no_content
   end
 
-  def set_borrow_request
-    @borrow_request = current_user.borrow_requests.find(params[:id])
-  end
+  # def set_borrow_request
+  #   @borrow_request = current_user.borrow_requests.find(params[:id])
+
+  # end
 
   def borrow_request_params
     params.require(:borrow_request).permit(:user_id, :book_id, :due_back, :response, :request_date, :response_date)
   end
 
-  private :set_borrow_request, :borrow_request_params
+  private :borrow_request_params#, :set_borrow_request
 
 end
