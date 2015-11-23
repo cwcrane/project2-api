@@ -2,8 +2,8 @@
 class Book < ActiveRecord::Base
   belongs_to :user
   has_one :profile, through: :user
-  has_many :borrow_requests
-  has_one :rating
+  has_many :borrow_requests, dependent: :destroy
+  has_one :rating, dependent: :destroy
 
   after_find :check_good_reads_rating_age #gets run after every time an activerecord model is retrieved from database.
 

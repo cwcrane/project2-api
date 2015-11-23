@@ -34,7 +34,7 @@ class BorrowRequestsController < OpenReadController
   # PATCH /borrow_requests/1
   def update
     @borrow_request = BorrowRequest.find(params[:id])
-    if @borrow_request.update(borrow_request_params)
+    if current_user && @borrow_request.update(borrow_request_params)
 
       render json: @borrow_request
     else

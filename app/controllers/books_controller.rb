@@ -58,7 +58,6 @@ class BooksController < OpenReadController
   # DELETE /books/1
   def destroy
     @book.destroy
-
     head :no_content
   end
 
